@@ -38033,7 +38033,7 @@ function Restaurant() {
     const [RestData, setRestData] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
         async function fetchData() {
-            const proxyServer = "https://proxy.corsfix.com/?";
+            const proxyServer = "https://cors-anywhere.herokuapp.com/";
             const swiggyAPI = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.57590&lng=77.33450&is-seo-homepage-enabled=true";
             const response = await fetch(proxyServer + swiggyAPI);
             const data = await response.json();
@@ -38776,7 +38776,7 @@ function RestaurantMenu() {
     const [RestDataA, setRestDataA] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
         async function fetchData() {
-            const proxyServer = "https://proxy.corsfix.com/?";
+            const proxyServer = "https://cors-anywhere.herokuapp.com/";
             const swiggyAPI = `https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.7040592&lng=77.10249019999999&restaurantId=${id}`;
             const response = await fetch(proxyServer + swiggyAPI);
             const data = await response.json();
