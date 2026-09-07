@@ -8,30 +8,12 @@ export default function Restaurant(){
     useEffect(()=>{
         
         async function fetchData() {
-  try {
-    const swiggyAPI =
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5759&lng=77.3345&is-seo-homepage-enabled=true";
-
-    const response = await fetch(
-      "https://corsproxy.io/?" + encodeURIComponent(swiggyAPI)
-    );
-
-    if (!response.ok) {
-      throw new Error(`HTTP Error: ${response.status}`);
-    }
-
-    const data = await response.json();
-
-    console.log(data);
-
-    setRestData(
-      data?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants || []
-    );
-  } catch (error) {
-    console.error("Restaurant API Error:", error);
-  }
-}
+           const proxyServer = "https://proxy.corsfix.com/?";
+           const swiggyAPI = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.57590&lng=77.33450&is-seo-homepage-enabled=true";
+           const response = await fetch(proxyServer+swiggyAPI);
+           const data = await response.json();
+           setRestData(data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        }
     fetchData();
     },[])
     //console.log(RestData);
